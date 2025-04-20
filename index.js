@@ -33,13 +33,3 @@ getPoolConnection()
     process.exit(1);
   });
 
-// testConnection()
-//   .then(() => {
-//     app.listen(PORT, () => {
-//       console.log(`Server running on http://localhost:${PORT}`);
-//     });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//     process.exit(1);
-//   });

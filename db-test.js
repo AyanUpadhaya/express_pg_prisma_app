@@ -2,7 +2,17 @@
 require("dotenv").config();
 const { Client, Pool } = require("pg");
 
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+const {
+  PGHOST,
+  PGDATABASE,
+  PGUSER,
+  PGPASSWORD,
+  PG_LOCAL_HOST,
+  PG_LOCAL_PORT,
+  PG_LOCAL_USER,
+  PG_LOCAL_PASSWORD,
+  PG_LOCAL_DATABASE,
+} = process.env;
 
 // Replace with your actual credentials or use dotenv for neon database
 const pool = new Pool({
@@ -17,11 +27,11 @@ const pool = new Pool({
 });
 // local postgres and docker
 const client = new Client({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "yourpassword",
-  database: "mydb",
+  host: PG_LOCAL_HOST,
+  port: PG_LOCAL_PORT,
+  user: PG_LOCAL_USER,
+  password: PG_LOCAL_PASSWORD,
+  database: PG_LOCAL_DATABASE,
 });
 
 async function getPoolConnection() {

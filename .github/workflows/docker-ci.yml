@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/express_pg_prisma_app ./app
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/express_pg_prisma_app .
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/express_pg_prisma_app
