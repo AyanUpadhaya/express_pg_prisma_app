@@ -1,5 +1,7 @@
 # Node.js
 node_modules/
+generated/ 
+generated
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -13,7 +15,7 @@ build/
 
 # Prisma
 .prisma/
-generated/       # if you use custom output for Prisma Client
+      # if you use custom output for Prisma Client
 
 # OS-specific
 .DS_Store
