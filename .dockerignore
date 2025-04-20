@@ -1,0 +1,39 @@
+# Node modules (always ignore locally installed packages)
+node_modules
+workflows
+npm-debug.log
+yarn-error.log
+docker-compose.yml
+docker-ci.yml
+seed.js
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+.github
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.sample
+
+# Prisma generated client if you're generating it during build
+/generated
+
+# Test files
+coverage
+__tests__
+*.spec.js
+*.test.js
+
+# Optional: ignore any local database files
+*.sqlite
+*.db
