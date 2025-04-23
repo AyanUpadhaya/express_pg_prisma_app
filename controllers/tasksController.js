@@ -21,3 +21,28 @@ exports.createTask = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.deleteTask = async (req, res, next) => {
+  try {
+    // Find the note first
+    const existingTask = await prisma.tasks.findUnique({
+      where: { id: parseInt(req.params.id) },
+    });
+
+    if (!existingTask) {
+      return res
+        .status(404)
+        .json({ message: "Task not found" });
+    }
+
+    const task = await prisma.tasks.delete({
+      where: {
+        id: parseInt(req.params.id),
+      },
+    });
+
+    res.json({ message: "task deleted"});
+  } catch (err) {
+    next(err);
+  }
+};

@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const tasksRoutes = require("./routes/tasksRoutes");
 const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
@@ -12,17 +13,18 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // for parsing JSON
+app.use(cors());
 app.use("/api/tasks", tasksRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
 
-app.get("/",(req,res)=>{
-  return res.send("Server is running")
-})
+app.get("/", (req, res) => {
+  return res.send("Server is running");
+});
 
 app.use(errorHandler); // error middleware at the end
 
-getPoolConnection()
+testConnection()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
@@ -32,4 +34,3 @@ getPoolConnection()
     console.log(error);
     process.exit(1);
   });
-

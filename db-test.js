@@ -40,7 +40,7 @@ async function getPoolConnection() {
     const result = await client.query("SELECT version()");
     if (result.rows[0]){ 
       console.log(result.rows[0]);
-      console.log("Connected to neon database")
+      console.log("✅ Connected to neon database")
     }
 
   } finally {
